@@ -1,5 +1,7 @@
 # `S.C.I.P.E.` "Skippy"
 
+### Don't Forget To Check Out The Wiki For More Info!!
+
 ### TODO:
 - Convert SCIPE to typescript - Stephan & Bao
 - Build relational datastructure functions()
