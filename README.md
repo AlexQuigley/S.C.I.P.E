@@ -7,14 +7,14 @@
 - Convert SCIPE slash command functions to API calls
 - Draw relational datastructure diagram
 
-### Project Contributors: 
-- **[Lead Dev]** - _[Alex Quigley](https://github.com/AlexQuigley)_  
-- **[Senior Dev]** - _[Stephan Antonyuk](https://github.com/stepan-antonyuk)_  
-- **[Senior Dev]** - _[Bao Nguyen](https://github.com/bnguyen1212)_  
+### Project Contributors:  
+**[Lead Dev]** - _[Alex Quigley](https://github.com/AlexQuigley)_  
+**[Senior Dev]** - _[Stephan Antonyuk](https://github.com/stepan-antonyuk)_  
+**[Senior Dev]** - _[Bao Nguyen](https://github.com/bnguyen1212)_  
 
-- **[Instructor]** - _Jeanie Arid_  
-- **[Instructor]** - _Taz Nakonecznyj a.k.a. The Tazmanian Devil_  
-- **[Mentor]** - _Sagar Dhaduk_  
+**[Instructor]** - _Jeanie Arid_  
+**[Instructor]** - _Taz Nakonecznyj a.k.a. The Tazmanian Devil_  
+**[Mentor]** - _Sagar Dhaduk_  
 
 ## Dev Installation & Setup
 This is the basic installation needed to develop and run SCIPE 
