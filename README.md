@@ -14,19 +14,6 @@
 **[Instructor]** - _Jeanie Arid_  
 **[Instructor]** - _Taz Nakonecznyj a.k.a. The Tazmanian Devil_  
 **[Mentor]** - _Sagar Dhaduk_  
-## Documentation  
-- [**Discord.js documentation**](https://discord.js.org/)
-- [**Discord.js Guide**](https://discordjs.guide/)
-- [**Skyra - Discord.js based bot for reference**](https://github.com/skyra-project/skyra)
-
-### Tutorials:
-- [**Setup Tutorial**](https://www.youtube.com/watch?v=KZ3tIGHU314)
-- [**DATABASE Setup! Sequelize & SQLite3 Tutorial | discord.js v14 (2023)**](https://www.youtube.com/watch?v=-3DiPj6S4x8)
-
-Youtube Vids Thay _might_ be helpful:
-- [Intro to Webhooks - Real Time App Automation (Discord Bot, Slack, GitHub)](https://youtu.be/c6d7lfvziRY?si=jgClodcd5T3ZjLhI)  
-- [Building an API with Node.js, Express.js, and OctoKit Tutorial that talks to GitHub](https://youtu.be/1S4CbFlOVF4?si=Gf0WGR37PcV9jz9l) (low quality)  
-- [Building a Discord Bot to Interact with the GitHub API - A Step-by-Step Guide!](https://youtu.be/1CuXR7NoynI?si=kIiYq5mCn4TjTGwI) (low quality)  
 
 ## Dev Installation & Setup
 This is the basic installation needed to develop and run SCIPE 
@@ -74,21 +61,6 @@ BOT_ID = <Bot ID>
 ```
 4) Assuming everything is correct, the bot should startup when you run `nodemon` or `node src/index.js` in the terminal. [^3] [^4]
 
-## File Structure:
-![SCIPY file structure drawio (2)](https://github.com/user-attachments/assets/00809ca6-fe3d-4f5d-9d9e-f9795961dca5)
-## Dev Goals:  
-#### Automated Student Assignments:  
-> Develop a fully automated system that, once students are assigned teams in the Teambuilder app, immediately adds them to the appropriate GitHub repositories and Discord channels without manual intervention.  
- 
-#### Detect Teams Changes:  
-> Ensure that any changes to teams made in the TeamBuilder app automatically update in both GitHub and Discord. Keep both platforms in sync with the current team structure.  
-
-#### Error Detection and Notification System:   
-> Create a system that detects and handles errors in the assignment process (e.g., failed API calls) and sends notifications to administrators to resolve issues.  
-#### Detect Student Error:   
-> If invitation to GitHub or Discord was send to all students, but the number of people in the GitHub or Discord doesn’t match to number of people in the team, send email to administrators and team members that some of them didn’t accept the invites.   
-#### Long-Term Data Storage and Analytics:   
-> Implement a system to store team and student data long-term, allowing for historical analysis of project team structures, participation, and outcomes for improving future course management.   
 
 [^1]: [**Setup Tutorial**](https://www.youtube.com/watch?v=KZ3tIGHU314)  
 [^2]: NOTE: Getting the `TOKEN` and `BOT_ID` values require you to have admin access to a constructed bot via [Discord Dev](https://discord.com/developers/applications)  
