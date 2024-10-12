@@ -1,0 +1,62 @@
+{
+  "partners": [
+    {
+      "id": "partner-123",
+      "name": "Tech Innovators",
+      "contact_name": "John Doe",
+      "contact_email": "john.doe@techinnovators.com",
+      "discord": "JohnDoe#1234",
+      "projects": [
+        {
+          "id": "project-456",
+          "name": "AI Research",
+          "targetCS": 5,
+          "teams": [
+            {
+              "id": "team-789",
+              "name": "AI Team Alpha",
+              "students": [
+                {
+                  "id": "student-001",
+                  "firstName": "Alice",
+                  "lastName": "Smith",
+                  "major": "Computer Science",
+                  "seniority": "3 years",
+                  "class": "Senior",
+                  "email": "alice.smith@university.edu",
+                  "discord": "AliceSmith#5678"
+                },
+                {
+                  "id": "student-002",
+                  "firstName": "Bob",
+                  "lastName": "Johnson",
+                  "major": "Data Science",
+                  "seniority": "2 years",
+                  "class": "Junior",
+                  "email": "bob.johnson@university.edu",
+                  "discord": "BobJ#1234"
+                }
+              ]
+            },
+            {
+              "id": "team-790",
+              "name": "AI Team Beta",
+              "students": [
+                {
+                  "id": "student-003",
+                  "firstName": "Charlie",
+                  "lastName": "Brown",
+                  "major": "Artificial Intelligence",
+                  "seniority": "1 year",
+                  "class": "Sophomore",
+                  "email": "charlie.brown@university.edu",
+                  "discord": "CharlieB#4321"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
