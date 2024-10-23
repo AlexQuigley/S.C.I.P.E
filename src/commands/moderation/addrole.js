@@ -5,7 +5,7 @@ const {
   PermissionFlagsBits,
 } = require("discord.js");
 
-module.exports = {
+module.npexports = {
   /**
    * @param {Client} client
    * @param {Interaction} interaction

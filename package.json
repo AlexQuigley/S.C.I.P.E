@@ -4,17 +4,14 @@
   "description": "S.C.I.P.E.  Smart Computer Interface for Protocol Execution",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@octokit/rest": "^21.0.2",
     "discord.js": "^14.16.2",
     "dotenv": "^16.4.5",
-    "mongoose": "^8.6.3",
-    "octokit": "^4.0.2",
-    "rest": "^2.0.0"
+    "ts-node": "^10.9.2"
   }
 }
