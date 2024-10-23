@@ -1,5 +1,5 @@
 import { Client } from "discord.js";
-//import { testServer } from '../../../config.json';
+import { testServer } from '../../../config.json';
 import areCommandsDifferent from '../../utils/areCommandsDifferent';
 import getApplicationCommands from '../../utils/getApplicationCommands';
 import getLocalCommands from '../../utils/getLocalCommands';
