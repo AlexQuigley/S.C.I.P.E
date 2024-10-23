@@ -1,7 +1,7 @@
 // This file handles all events within the events folder
 
 import path from 'path';
-import getAllFiles from '../utils/getAllFiles';
+import getAllFiles from '../utils/getAllFiles.js';
 import { Client } from 'discord.js';
 
 export default (client: Client) => {

@@ -1,15 +1,15 @@
 import { Client } from "discord.js";
 import { testServer } from '../../../config.json';
-import areCommandsDifferent from '../../utils/areCommandsDifferent';
-import getApplicationCommands from '../../utils/getApplicationCommands';
-import getLocalCommands from '../../utils/getLocalCommands';
+import areCommandsDifferent from '../../utils/areCommandsDifferent.js';
+import getApplicationCommands from '../../utils/getApplicationCommands.js';
+import getLocalCommands from '../../utils/getLocalCommands.js';
 
 export default async (client: Client) => {
   try {
     // Gets a copy of all local commands stored in bot's file structure
     const localCommands = getLocalCommands();
     // Gets a copy of all commands registered to the bot on the discord server
-    const applicationCommands = await getApplicationCommands(client);
+    const applicationCommands = await getApplicationCommands(client, testServer);
 
     // Loop through all local commands and compare them to application commands for any differences
     for (const localCommand of localCommands) {

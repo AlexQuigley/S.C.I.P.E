@@ -2,7 +2,7 @@
 //Gets all command files stored locally within the /commands folder
 
 const path = require('path');
-const getAllFiles = require('./getAllFiles');
+const getAllFiles = require('./getAllFiles.js');
 
 module.exports = (exceptions = []) => {
   //Array for storing all commands

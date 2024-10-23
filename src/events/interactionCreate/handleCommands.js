@@ -1,7 +1,7 @@
 //This file handles all slash commands
 
 const { devs, testServer } = require('../../../config.json');
-const getLocalCommands = require('../../utils/getLocalCommands');
+const getLocalCommands = require('../../utils/getLocalCommands.js');
 
 module.exports = async (client, interaction) => {
   //Is the interaction a chat-input command
