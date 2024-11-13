@@ -24,8 +24,14 @@ export default (client: Client) => {
     // Listens for events to happen and then calls the required event
     client.on(eventName, async (arg) => {
       for (const eventFile of eventFiles) {
-        const eventFunction = (await import(eventFile)).default;
-        await eventFunction(client, arg);
+        const module = await import(eventFile);
+        const eventFunction = module.default;
+
+        if (typeof eventFunction === 'function') {
+          await eventFunction(client, arg);
+        } else {
+          console.error(`Default export in ${eventFile} is not a function`);
+        }
       }
     });
   }

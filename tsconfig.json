@@ -9,7 +9,8 @@
       "outDir": "./dist",
       "rootDir": "./src",
       "allowJs": true, // Allow JavaScript files
-      "checkJs": false  // Optional: Disable type checking for JS files
+      "checkJs": false,  // Optional: Disable type checking for JS files
+      "resolveJsonModule": true,
     },
     "include": ["src"],
     "exclude": ["node_modules"]
