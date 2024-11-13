@@ -1,9 +1,13 @@
-const fs = require("fs");
-const path = require("path");
-const {
+import fs from "fs";
+import path from "path";
+import {
+  Client,
+  ChatInputCommandInteraction,
   ApplicationCommandOptionType,
   PermissionFlagsBits,
-} = require("discord.js");
+  CategoryChannel,
+  TextChannel,
+} from "discord.js";
 
 module.exports = {
   /**
@@ -11,10 +15,15 @@ module.exports = {
    * @param {Client} client - The Discord client.
    * @param {Interaction} interaction - The interaction object from the slash command.
    */
-  callback: async (client, interaction) => {
+  callback: async (client: Client, interaction: ChatInputCommandInteraction) => {
     try {
       // Defer the reply to give the bot time to process
       await interaction.deferReply();
+
+      if (!interaction.guild) {
+        await interaction.editReply("This command can only be used in a server.");
+        return;
+      }
 
       // Define the path to the data.json file
       const filePath = path.join(__dirname, "..", "..", "..", "data.json");
@@ -23,12 +32,12 @@ module.exports = {
       const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
       // Extract project names from the data
-      const projectNames = data.partners.flatMap((partner) =>
+      const projectNames = data.partners.flatMap((partner: { projects: { name: string }[] }) =>
         partner.projects.map((project) => project.name)
       );
 
       // Get the list of existing channels in the guild
-      const existingChannels = interaction.guild.channels.cache;
+      const existingChannels = interaction.guild?.channels.cache;
 
       // Loop through each project name
       for (const projectName of projectNames) {
@@ -38,12 +47,12 @@ module.exports = {
           .replace(/\s+/g, "-");
 
         // Check if a channel with the formatted name already exists
-        const channelExists = existingChannels.some(
+        const channelExists = existingChannels?.some(
           (channel) => channel.name === formattedChannelName
         );
 
         // Find or create the "projects" category
-        let projectsCategory = interaction.guild.channels.cache.find(
+        let projectsCategory = interaction.guild?.channels.cache.find(
           (channel) => channel.name === "projects" && channel.type === 4 // 4 represents a category in Discord.js v14
         );
 

@@ -1,24 +1,29 @@
-const {
+import {
   Client,
-  Interaction,
+  ChatInputCommandInteraction,
   ApplicationCommandOptionType,
   PermissionFlagsBits,
-} = require("discord.js");
+  GuildMember,
+} from "discord.js";
 
 module.exports = {
   /**
    * @param {Client} client
    * @param {Interaction} interaction
    */
-  callback: async (client, interaction) => {
-    const targetUserId = interaction.options.get("target-user").value;
-    const timeoutDuration = interaction.options.get("duration").value; // Duration in minutes
-    const reason =
-      interaction.options.get("reason")?.value || "No reason provided";
+  callback: async (client: Client, interaction: ChatInputCommandInteraction) => {
+    const targetUserId = interaction.options.get("target-user")!.value as string;
+    const timeoutDuration = interaction.options.get("duration")!.value as number; // Duration in minutes
+    const reason = interaction.options.get("reason")?.value as string || "No reason provided";
 
     await interaction.deferReply();
 
-    const targetUser = await interaction.guild.members.fetch(targetUserId);
+    if (!interaction.guild) {
+      await interaction.editReply("This command can only be used in a server.");
+      return;
+    }
+
+    const targetUser = await interaction.guild?.members.fetch(targetUserId);
 
     // Check if the user exists in the server
     if (!targetUser) {
@@ -27,15 +32,15 @@ module.exports = {
     }
 
     // Check if the user is the server owner
-    if (targetUser.id === interaction.guild.ownerId) {
+    if (targetUser.id === interaction.guild!.ownerId) {
       await interaction.editReply("You can't timeout the server owner.");
       return;
     }
 
     // Role hierarchy checks
     const targetUserRolePosition = targetUser.roles.highest.position; // Highest role of the target user
-    const requestUserRolePosition = interaction.member.roles.highest.position; // Highest role of the user running the command
-    const botRolePosition = interaction.guild.members.me.roles.highest.position; // Highest role of the bot
+    const requestUserRolePosition = (interaction.member as GuildMember).roles.highest.position; // Highest role of the user running the command
+    const botRolePosition = interaction.guild.members.me!.roles.highest.position; // Highest role of the bot
 
     if (targetUserRolePosition >= requestUserRolePosition) {
       await interaction.editReply(
