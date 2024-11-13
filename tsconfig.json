@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "allowJs": true, // Allow JavaScript files
+      "checkJs": false,  // Optional: Disable type checking for JS files
+      "resolveJsonModule": true,
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+  }
+
+  

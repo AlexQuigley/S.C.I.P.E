@@ -1,9 +1,10 @@
 //This file handles all slash commands
 
-const { devs, testServer } = require('../../../config.json');
-const getLocalCommands = require('../../utils/getLocalCommands');
+import { Client, Interaction, GuildMember } from 'discord.js';
+import { devs, testServer } from '../../../config.json';
+import getLocalCommands from '../../utils/getLocalCommands';
 
-module.exports = async (client, interaction) => {
+export default async (client: Client, interaction: Interaction) => {
   //Is the interaction a chat-input command
   if (!interaction.isChatInputCommand()) return;
 
@@ -14,7 +15,7 @@ module.exports = async (client, interaction) => {
   try {
     //Checks if command names match
     const commandObject = localCommands.find(
-      (cmd) => cmd.name === interaction.commandName
+      (cmd: { name: string }) => cmd.name === interaction.commandName
     );
 
     //Checks if commandObject exists
@@ -24,7 +25,7 @@ module.exports = async (client, interaction) => {
     //if so, checks to make sure person running command has 
     //developer permissions.
     if (commandObject.devOnly) {
-      if (!devs.includes(interaction.member.id)) {
+      if (!interaction.member || !devs.includes((interaction.member as GuildMember).id)) {
         interaction.reply({
           content: 'Only developers are allowed to run this command.',
           //Only person running command can see message
@@ -38,7 +39,7 @@ module.exports = async (client, interaction) => {
     //if so, checks if the server is a test server.
     //if server isnt a test serevr, bot does not run command.
     if (commandObject.testOnly) {
-      if (!(interaction.guild.id === testServer)) {
+      if (!interaction.guild || interaction.guild.id !== testServer) {
         interaction.reply({
           content: 'This command cannot be ran here.',
           ephemeral: true,
@@ -50,7 +51,7 @@ module.exports = async (client, interaction) => {
     //Checks if person runnig command has required permissions
     if (commandObject.permissionsRequired?.length) {
       for (const permission of commandObject.permissionsRequired) {
-        if (!interaction.member.permissions.has(permission)) {
+        if (!interaction.member || !(interaction.member as GuildMember).permissions.has(permission)) {
           interaction.reply({
             content: 'Not enough permissions.',
             ephemeral: true,
@@ -63,7 +64,14 @@ module.exports = async (client, interaction) => {
     //Checks if bot has permissions to run command
     if (commandObject.botPermissions?.length) {
       for (const permission of commandObject.botPermissions) {
-        const bot = interaction.guild.members.me;
+        const bot = interaction.guild?.members.me;
+        if (!bot) {
+          interaction.reply({
+            content: "I don't have enough permissions.",
+            ephemeral: true,
+          });
+          return;
+        }
 
         if (!bot.permissions.has(permission)) {
           interaction.reply({

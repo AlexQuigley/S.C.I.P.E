@@ -1,12 +1,13 @@
-
-const {
-    ApplicationCommandOptionType,
-    PermissionFlagsBits,
-  } = require('discord.js');
+import { 
+    ApplicationCommandOptionType, 
+    PermissionFlagsBits, 
+    ChatInputCommandInteraction, 
+    Client 
+} from 'discord.js';
 
 module.exports = {
 
-    callback: async (client, interaction) => {
+    callback: async (client: Client, interaction: ChatInputCommandInteraction) => {
         // Defer the reply to give us time to process
         await interaction.deferReply();
 
@@ -16,14 +17,14 @@ module.exports = {
 
         try {
             // Create the new channel
-            const newChannel = await interaction.guild.channels.create({
-                name: channelName,
+            const newChannel = await interaction.guild?.channels.create({
+                name: channelName!,
                 //type: channelType,
-                parent: categoryId,
+                parent: categoryId ? categoryId.id : null,
             });
     
             // Send a success message
-            interaction.editReply(`Channel "${newChannel.name}" created successfully!`);
+            interaction.editReply(`Channel "${newChannel?.name}" created successfully!`);
         } catch (error) {
             // Handle any errors that occur during channel creation
             interaction.editReply(`Error: failed to create channel: ${error}`);

@@ -1,9 +1,11 @@
-const {
+import {
   Client,
-  Interaction,
+  ChatInputCommandInteraction,
   ApplicationCommandOptionType,
   PermissionFlagsBits,
-} = require("discord.js");
+  GuildMember,
+  Role,
+} from "discord.js";
 
 module.exports = {
   /**
@@ -11,13 +13,13 @@ module.exports = {
    * @param {Interaction} interaction
    */
 
-  callback: async (client, interaction) => {
-    const targetUserId = interaction.options.get("target-user").value;
+  callback: async (client: Client, interaction: ChatInputCommandInteraction) => {
+    const targetUserId = interaction.options.get("target-user")?.value as string;
     await interaction.deferReply();
 
-    const targetUser = await interaction.guild.members.fetch(targetUserId);
-    const role = await interaction.options.getRole("role");
-    const member = interaction.options.getMember("target-user");
+    const targetUser = await interaction.guild?.members.fetch(targetUserId);
+    const role = await interaction.options.getRole("role") as Role;
+    const member = interaction.options.getMember("target-user") as GuildMember;
 
     //Checks if user exsists in server
     if (!targetUser) {
