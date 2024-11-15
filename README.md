@@ -3,11 +3,7 @@
 ### Don't Forget To Check Out The Wiki For More Info!!
 
 ### TODO:
-- Convert SCIPE to typescript - Stephan & Bao
-- Build relational datastructure functions()
-- Test relational datastructures with dummy data
-- Convert SCIPE slash command functions to API calls
-- Draw relational datastructure diagram
+- Convert SCIPE functions to API functions
 
 ### Project Contributors:  
 **[Lead Dev]** - _[Alex Quigley](https://github.com/AlexQuigley)_  
