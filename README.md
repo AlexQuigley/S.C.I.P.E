@@ -58,7 +58,7 @@ BOT_ID = <Bot ID>
      }
    }
 ```
-4) Assuming everything is correct, the bot should startup when you run `nodemon` or `node src/index.js` in the terminal. [^3] [^4]
+4) Assuming everything is correct, the bot should startup when you run `npm start` or `ts-node src/index.ts` in the terminal. [^3] [^4]
 
 
 [^1]: [**Setup Tutorial**](https://www.youtube.com/watch?v=KZ3tIGHU314)  
