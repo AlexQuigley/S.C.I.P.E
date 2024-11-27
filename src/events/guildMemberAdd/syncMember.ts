@@ -13,6 +13,15 @@ interface Student {
   discord: string;
 }
 
+/**
+ * On guild member add, syncs the member's role and nickname with the data.json file.
+ * Depends that the data.json file is in the root directory of the project.
+ * Depends that role names are already created in the format "Project Name - Current".
+ * 
+ * @param {Client} client - The Discord client.
+ * @param {GuildMember} member - The new guild member.
+ * @throws {Error} if an error occurs while syncing the member.
+ */
 const syncMember = async (client: Client, member: GuildMember) => {
   try {
     // Define the path to the data.json file
