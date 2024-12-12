@@ -3,7 +3,11 @@
 ### Don't Forget To Check Out The Wiki For More Info!!
 
 ### TODO:
-- Convert SCIPE functions to API functions
+- Convert SCIPE to typescript - Stephan & Bao `Finished`
+- Build relational datastructure functions() `Finished`
+- Test relational datastructures with dummy data `Finished`
+- Convert SCIPE slash command functions to API calls `Finished`
+- Fix TeamBuilder Website & add DOCUMENTATION FOR THE LOVE PLEASE 
 
 ### Project Contributors:  
 **[Lead Dev]** - _[Alex Quigley](https://github.com/AlexQuigley)_  
