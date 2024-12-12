@@ -1,8 +1,8 @@
 # `S.C.I.P.E.` "Skippy"
 
-### Don't Forget To Check Out The Wiki For More Info!!
+## As of 12/12/24 SCIPE has been integrated into the [**EPICS Teambuilder Application**](https://github.com/UTDallasEPICS/Teambuilder)
 
-# As of 12/12/24 SCIPE has been integrated into the [**EPICS Teambuilder Application**](https://github.com/UTDallasEPICS/Teambuilder)
+### Don't Forget To Check Out The Wiki For More Info!!
 
 ### TODO:
 - Convert SCIPE to typescript - Stephan & Bao `Finished`
