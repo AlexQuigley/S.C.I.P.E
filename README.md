@@ -1,4 +1,4 @@
-# `S.C.I.P.E.` "Skippy"
+# `S.C.I.P.E.` "Skippy" - Smart Computer Interface for Protocol Execution
 
 ### As of 12/12/24 SCIPE has been integrated into the [**EPICS Teambuilder Application**](https://github.com/UTDallasEPICS/Teambuilder)
 
